@@ -28,6 +28,7 @@ import com.cyanogenmod.eleven.MusicPlaybackService;
 import com.cyanogenmod.eleven.R;
 import com.cyanogenmod.eleven.ui.activities.HomeActivity;
 import com.cyanogenmod.eleven.utils.ApolloUtils;
+import com.cyanogenmod.eleven.utils.BitmapWithColors;
 
 /**
  * 4x1 App-Widget
@@ -127,6 +128,8 @@ public class AppWidgetSmall extends AppWidgetBase {
             appWidgetView.setTextViewText(R.id.app_widget_small_line_two, artistName);
         }
         appWidgetView.setImageViewBitmap(R.id.app_widget_small_image, bitmap);
+        BitmapWithColors artwork = MusicPlaybackService.getAlbumArt(false);
+        appWidgetView.setInt(R.id.app_widget_small_backgroundimage, "setColorFilter", ((artwork.getVibrantDarkColor()), PorterDuff.Mode.LIGHTEN));
 
         // Set correct drawable for pause state
         final boolean isPlaying = service.isPlaying();

@@ -26,6 +26,7 @@ import com.cyanogenmod.eleven.MusicPlaybackService;
 import com.cyanogenmod.eleven.R;
 import com.cyanogenmod.eleven.ui.activities.HomeActivity;
 import com.cyanogenmod.eleven.utils.ApolloUtils;
+import com.cyanogenmod.eleven.utils.BitmapWithColors;
 import com.cyanogenmod.eleven.widgets.RepeatButton;
 import com.cyanogenmod.eleven.widgets.ShuffleButton;
 
@@ -126,6 +127,8 @@ public class AppWidgetLargeAlternate extends AppWidgetBase {
         appWidgetView.setTextViewText(R.id.app_widget_large_alternate_line_two, artistName);
         appWidgetView.setTextViewText(R.id.app_widget_large_alternate_line_three, albumName);
         appWidgetView.setImageViewBitmap(R.id.app_widget_large_alternate_image, bitmap);
+        BitmapWithColors artwork = MusicPlaybackService.getAlbumArt(false);
+        appWidgetView.setInt(R.id.app_widget_large_alternate_backgroundimage, "setColorFilter", ((artwork.getVibrantDarkColor()), PorterDuff.Mode.LIGHTEN));
 
         // Set correct drawable for pause state
         final boolean isPlaying = service.isPlaying();

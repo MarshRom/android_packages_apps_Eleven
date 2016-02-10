@@ -27,6 +27,17 @@
     tools:ignore="NestedWeights" >
 
     <ImageView
+        android:id="@+id/app_widget_small_backgroundimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:src="@drawable/appwidget_bg"
+        android:gravity="top"
+        android:padding="@dimen/app_widget_padding"
+        android:scaleType="fitXY" />
+
+    <ImageView
         android:id="@+id/app_widget_small_image"
         android:layout_width="@dimen/app_widget_small_artwork_size"
         android:layout_height="@dimen/app_widget_small_artwork_size"
