@@ -25,6 +25,15 @@
     tools:ignore="ContentDescription" >
 
     <ImageView
+        android:id="@+id/app_widget_large_background"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_widget_large_min_height"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:src="@drawable/appwidget_bg"
+        android:scaleType="fitXY" />
+
+    <ImageView
         android:id="@+id/app_widget_large_image"
         android:layout_width="@dimen/notification_expanded_height"
         android:layout_height="@dimen/notification_expanded_height"

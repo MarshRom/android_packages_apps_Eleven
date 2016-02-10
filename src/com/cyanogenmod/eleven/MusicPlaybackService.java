@@ -2703,7 +2703,7 @@ public class MusicPlaybackService extends Service {
      *                    Currently Has no impact on the artwork size if one exists
      * @return The album art for the current album.
      */
-    public BitmapWithColors getAlbumArt(boolean smallBitmap) {
+    public static BitmapWithColors getAlbumArt(boolean smallBitmap) {
         final String albumName = getAlbumName();
         final String artistName = getArtistName();
         final long albumId = getAlbumId();
