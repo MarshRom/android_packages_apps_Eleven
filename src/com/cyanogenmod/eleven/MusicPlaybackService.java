@@ -15,6 +15,7 @@ package com.cyanogenmod.eleven;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -3134,10 +3135,30 @@ public class MusicPlaybackService extends Service {
 
                 player.prepare();
             } catch (final IOException todo) {
-                // TODO: notify the user why the file couldn't be opened
+                AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
+                b.setTitle("Error");
+                b.setMessage(todo.getMessage())
+                b.setNegativeButton("Ok", new OnClickListener() {
+                    @Override
+                    public void onClick(final DialogInterface dialog, final int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog alert = b.create();
+                alert.show();
                 return false;
             } catch (final IllegalArgumentException todo) {
-                // TODO: notify the user why the file couldn't be opened
+                AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
+                b.setTitle("Error");
+                b.setMessage(todo.getMessage())
+                b.setNegativeButton("Ok", new OnClickListener() {
+                    @Override
+                    public void onClick(final DialogInterface dialog, final int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog alert = b.create();
+                alert.show();
                 return false;
             }
             player.setOnCompletionListener(this);
