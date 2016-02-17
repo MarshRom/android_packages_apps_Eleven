@@ -25,6 +25,7 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -54,6 +55,7 @@ import android.provider.MediaStore.Audio.AlbumColumns;
 import android.provider.MediaStore.Audio.AudioColumns;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 
 import com.cyanogenmod.eleven.Config.IdType;
 import com.cyanogenmod.eleven.appwidgets.AppWidgetLarge;
@@ -2705,11 +2707,11 @@ public class MusicPlaybackService extends Service {
      * @return The album art for the current album.
      */
     public static BitmapWithColors getAlbumArt(boolean smallBitmap) {
-        final String albumName = getAlbumName();
-        final String artistName = getArtistName();
-        final long albumId = getAlbumId();
-        final String key = albumName + "_" + artistName + "_" + albumId;
-        final int targetIndex = smallBitmap ? 0 : 1;
+        final static String albumName = getAlbumName();
+        final static String artistName = getArtistName();
+        final static long albumId = getAlbumId();
+        final static String key = albumName + "_" + artistName + "_" + albumId;
+        final static int targetIndex = smallBitmap ? 0 : 1;
 
         // if the cached key matches and we have the bitmap, return it
         if (key.equals(mCachedKey) && mCachedBitmapWithColors[targetIndex] != null) {
@@ -3134,7 +3136,7 @@ public class MusicPlaybackService extends Service {
                 player.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 player.prepare();
             } catch (final IOException todo) {
-                AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder b = new AlertDialog.Builder(this.getActivity());
                 b.setTitle("Error");
                 b.setMessage(todo.getMessage());
                 b.setNegativeButton("Ok", new OnClickListener() {
@@ -3147,7 +3149,7 @@ public class MusicPlaybackService extends Service {
                 alert.show();
                 return false;
             } catch (final IllegalArgumentException todo) {
-                AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder b = new AlertDialog.Builder(this.getActivity());
                 b.setTitle("Error");
                 b.setMessage(todo.getMessage());
                 b.setNegativeButton("Ok", new OnClickListener() {
