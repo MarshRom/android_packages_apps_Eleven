@@ -18,10 +18,15 @@ package com.cyanogenmod.eleven.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
+import com.cyanogenmod.eleven.cache.BitmapWorkerTask;
 import com.cyanogenmod.eleven.cache.ImageCache;
 import com.cyanogenmod.eleven.cache.ImageWorker;
+import com.cyanogenmod.eleven.lastfm.Album;
+import com.cyanogenmod.eleven.lastfm.Artist;
 import com.cyanogenmod.eleven.lastfm.ImageSize;
 import com.cyanogenmod.eleven.lastfm.MusicEntry;
 

@@ -486,8 +486,8 @@ public class MusicPlaybackService extends Service {
     private BroadcastReceiver mUnmountReceiver = null;
 
     // to improve perf, instead of hitting the disk cache or file cache, store the bitmaps in memory
-    private String mCachedKey;
-    private BitmapWithColors[] mCachedBitmapWithColors = new BitmapWithColors[2];
+    public static String mCachedKey;
+    public static BitmapWithColors[] mCachedBitmapWithColors = new BitmapWithColors[2];
 
     /**
      * Image cache
@@ -3132,12 +3132,11 @@ public class MusicPlaybackService extends Service {
                     player.setDataSource(path);
                 }
                 player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-
                 player.prepare();
             } catch (final IOException todo) {
-                AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
+                AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
                 b.setTitle("Error");
-                b.setMessage(todo.getMessage())
+                b.setMessage(todo.getMessage());
                 b.setNegativeButton("Ok", new OnClickListener() {
                     @Override
                     public void onClick(final DialogInterface dialog, final int which) {
@@ -3148,9 +3147,9 @@ public class MusicPlaybackService extends Service {
                 alert.show();
                 return false;
             } catch (final IllegalArgumentException todo) {
-                AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
+                AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
                 b.setTitle("Error");
-                b.setMessage(todo.getMessage())
+                b.setMessage(todo.getMessage());
                 b.setNegativeButton("Ok", new OnClickListener() {
                     @Override
                     public void onClick(final DialogInterface dialog, final int which) {

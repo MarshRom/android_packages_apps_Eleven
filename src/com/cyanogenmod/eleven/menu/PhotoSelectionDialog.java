@@ -120,11 +120,11 @@ public class PhotoSelectionDialog extends DialogFragment {
     private void setArtistChoices() {
         // Select a photo from the gallery
         mChoices.add(NEW_PHOTO, getString(R.string.new_photo));
-        /* Disable fetching image until we find a last.fm replacement
+        // Disable fetching image until we find a last.fm replacement
         if (ApolloUtils.isOnline(getActivity())) {
             // Option to fetch the old artist image
             mChoices.add(OLD_PHOTO, getString(R.string.context_menu_fetch_artist_image));
-        }*/
+        }
     }
 
     /**
@@ -133,12 +133,12 @@ public class PhotoSelectionDialog extends DialogFragment {
     private void setAlbumChoices() {
         // Select a photo from the gallery
         mChoices.add(NEW_PHOTO, getString(R.string.new_photo));
-        /* Disable fetching image until we find a last.fm replacement
+        // Disable fetching image until we find a last.fm replacement
         // Option to fetch the old album image
         if (ApolloUtils.isOnline(getActivity())) {
             // Option to fetch the old artist image
             mChoices.add(OLD_PHOTO, getString(R.string.context_menu_fetch_album_art));
-        }*/
+        }
     }
 
     /**
@@ -149,7 +149,7 @@ public class PhotoSelectionDialog extends DialogFragment {
         mChoices.add(NEW_PHOTO, getString(R.string.new_photo));
         // Disable fetching image until we find a last.fm replacement
         // Option to use the default image
-        // mChoices.add(OLD_PHOTO, getString(R.string.use_default));
+        mChoices.add(OLD_PHOTO, getString(R.string.use_default));
     }
 
     /**
