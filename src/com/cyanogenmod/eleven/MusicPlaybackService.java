@@ -2707,11 +2707,11 @@ public class MusicPlaybackService extends Service {
      * @return The album art for the current album.
      */
     public static BitmapWithColors getAlbumArt(boolean smallBitmap) {
-        static final String albumName = getAlbumName();
-        static final String artistName = getArtistName();
-        static final long albumId = getAlbumId();
-        static final String key = albumName + "_" + artistName + "_" + albumId;
-        static final int targetIndex = smallBitmap ? 0 : 1;
+        static String albumName = getAlbumName();
+        static String artistName = getArtistName();
+        static long albumId = getAlbumId();
+        static String key = albumName + "_" + artistName + "_" + albumId;
+        static int targetIndex = smallBitmap ? 0 : 1;
 
         // if the cached key matches and we have the bitmap, return it
         if (key.equals(mCachedKey) && mCachedBitmapWithColors[targetIndex] != null) {
@@ -2719,7 +2719,7 @@ public class MusicPlaybackService extends Service {
         }
 
         // otherwise get the artwork (or defaultartwork if none found)
-        final BitmapWithColors bitmap = mImageFetcher.getArtwork(albumName,
+        BitmapWithColors bitmap = mImageFetcher.getArtwork(albumName,
                 albumId, artistName, smallBitmap);
 
         // if the key is different, clear the bitmaps first
