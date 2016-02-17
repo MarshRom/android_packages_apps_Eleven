@@ -2707,11 +2707,11 @@ public class MusicPlaybackService extends Service {
      * @return The album art for the current album.
      */
     public static BitmapWithColors getAlbumArt(boolean smallBitmap) {
-        final static String albumName = getAlbumName();
-        final static String artistName = getArtistName();
-        final static long albumId = getAlbumId();
-        final static String key = albumName + "_" + artistName + "_" + albumId;
-        final static int targetIndex = smallBitmap ? 0 : 1;
+        static final String albumName = getAlbumName();
+        static final String artistName = getArtistName();
+        static final long albumId = getAlbumId();
+        static final String key = albumName + "_" + artistName + "_" + albumId;
+        static final int targetIndex = smallBitmap ? 0 : 1;
 
         // if the cached key matches and we have the bitmap, return it
         if (key.equals(mCachedKey) && mCachedBitmapWithColors[targetIndex] != null) {
