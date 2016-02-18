@@ -128,7 +128,7 @@ public class AppWidgetLargeAlternate extends AppWidgetBase {
         appWidgetView.setTextViewText(R.id.app_widget_large_alternate_line_two, artistName);
         appWidgetView.setTextViewText(R.id.app_widget_large_alternate_line_three, albumName);
         appWidgetView.setImageViewBitmap(R.id.app_widget_large_alternate_image, bitmap);
-        appWidgetView.setInt(R.id.app_widget_large_alternate_backgroundimage, "setColorFilter", ((artwork.getVibrantDarkColor()), PorterDuff.Mode.LIGHTEN));
+        appWidgetView.setInt(R.id.app_widget_large_alternate_backgroundimage, "setColorFilter", artwork.getVibrantDarkColor());
 
         // Set correct drawable for pause state
         final boolean isPlaying = service.isPlaying();
