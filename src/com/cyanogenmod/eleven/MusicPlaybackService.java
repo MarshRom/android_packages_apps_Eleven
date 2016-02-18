@@ -3136,7 +3136,7 @@ public class MusicPlaybackService extends Service {
                 player.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 player.prepare();
             } catch (final IOException todo) {
-                AlertDialog.Builder b = new AlertDialog.Builder(this.getActivity());
+                AlertDialog.Builder b = new AlertDialog.Builder(this);
                 b.setTitle("Error");
                 b.setMessage(todo.getMessage());
                 b.setNegativeButton("Ok", new OnClickListener() {
@@ -3149,7 +3149,7 @@ public class MusicPlaybackService extends Service {
                 alert.show();
                 return false;
             } catch (final IllegalArgumentException todo) {
-                AlertDialog.Builder b = new AlertDialog.Builder(this.getActivity());
+                AlertDialog.Builder b = new AlertDialog.Builder(this);
                 b.setTitle("Error");
                 b.setMessage(todo.getMessage());
                 b.setNegativeButton("Ok", new OnClickListener() {
