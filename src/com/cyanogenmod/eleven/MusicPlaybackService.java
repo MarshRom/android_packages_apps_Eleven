@@ -521,6 +521,12 @@ public class MusicPlaybackService extends Service {
      */
     private boolean mShowAlbumArtOnLockscreen;
 
+    public static String albumName;
+    public static String artistName;
+    public static long albumId;
+    public static String key;
+    public static int targetIndex;
+
     private ShakeDetector.Listener mShakeDetectorListener=new ShakeDetector.Listener() {
 
         @Override
@@ -2707,11 +2713,11 @@ public class MusicPlaybackService extends Service {
      * @return The album art for the current album.
      */
     public static BitmapWithColors getAlbumArt(boolean smallBitmap) {
-        static String albumName = getAlbumName();
-        static String artistName = getArtistName();
-        static long albumId = getAlbumId();
-        static String key = albumName + "_" + artistName + "_" + albumId;
-        static int targetIndex = smallBitmap ? 0 : 1;
+        albumName = getAlbumName();
+        artistName = getArtistName();
+        albumId = getAlbumId();
+        String key = albumName + "_" + artistName + "_" + albumId;
+        targetIndex = smallBitmap ? 0 : 1;
 
         // if the cached key matches and we have the bitmap, return it
         if (key.equals(mCachedKey) && mCachedBitmapWithColors[targetIndex] != null) {
