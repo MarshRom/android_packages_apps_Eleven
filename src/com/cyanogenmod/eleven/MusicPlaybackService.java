@@ -521,12 +521,6 @@ public class MusicPlaybackService extends Service {
      */
     private boolean mShowAlbumArtOnLockscreen;
 
-    public static String albumName;
-    public static String artistName;
-    public static long albumId;
-    public static String key;
-    public static int targetIndex;
-
     private ShakeDetector.Listener mShakeDetectorListener=new ShakeDetector.Listener() {
 
         @Override
@@ -2712,12 +2706,12 @@ public class MusicPlaybackService extends Service {
      *                    Currently Has no impact on the artwork size if one exists
      * @return The album art for the current album.
      */
-    public static BitmapWithColors getAlbumArt(boolean smallBitmap) {
-        albumName = getAlbumName();
-        artistName = getArtistName();
-        albumId = getAlbumId();
-        String key = albumName + "_" + artistName + "_" + albumId;
-        targetIndex = smallBitmap ? 0 : 1;
+    public BitmapWithColors getAlbumArt(boolean smallBitmap) {
+        final String albumName = getAlbumName();
+        final String artistName = getArtistName();
+        final long albumId = getAlbumId();
+        final String key = albumName + "_" + artistName + "_" + albumId;
+        final int targetIndex = smallBitmap ? 0 : 1;
 
         // if the cached key matches and we have the bitmap, return it
         if (key.equals(mCachedKey) && mCachedBitmapWithColors[targetIndex] != null) {
@@ -2725,7 +2719,7 @@ public class MusicPlaybackService extends Service {
         }
 
         // otherwise get the artwork (or defaultartwork if none found)
-        BitmapWithColors bitmap = mImageFetcher.getArtwork(albumName,
+        final BitmapWithColors bitmap = mImageFetcher.getArtwork(albumName,
                 albumId, artistName, smallBitmap);
 
         // if the key is different, clear the bitmaps first

@@ -118,6 +118,7 @@ public class AppWidgetSmall extends AppWidgetBase {
         final CharSequence trackName = service.getTrackName();
         final CharSequence artistName = service.getArtistName();
         final Bitmap bitmap = service.getAlbumArt(true).getBitmap();
+        final BitmapWithColors artwork = service.getAlbumArt(false);
 
         // Set the titles and artwork
         if (TextUtils.isEmpty(trackName) && TextUtils.isEmpty(artistName)) {
@@ -128,7 +129,6 @@ public class AppWidgetSmall extends AppWidgetBase {
             appWidgetView.setTextViewText(R.id.app_widget_small_line_two, artistName);
         }
         appWidgetView.setImageViewBitmap(R.id.app_widget_small_image, bitmap);
-        BitmapWithColors artwork = MusicPlaybackService.getAlbumArt(false);
         appWidgetView.setInt(R.id.app_widget_small_backgroundimage, "setColorFilter", ((artwork.getVibrantDarkColor()), PorterDuff.Mode.LIGHTEN));
 
         // Set correct drawable for pause state
