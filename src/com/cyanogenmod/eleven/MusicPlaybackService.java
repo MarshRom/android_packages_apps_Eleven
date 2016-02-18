@@ -56,6 +56,7 @@ import android.provider.MediaStore.Audio.AudioColumns;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 import com.cyanogenmod.eleven.Config.IdType;
 import com.cyanogenmod.eleven.appwidgets.AppWidgetLarge;
@@ -3136,7 +3137,7 @@ public class MusicPlaybackService extends Service {
                 player.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 player.prepare();
             } catch (final IOException todo) {
-                AlertDialog.Builder b = new AlertDialog.Builder(this);
+               /* AlertDialog.Builder b = new AlertDialog.Builder(this);
                 b.setTitle("Error");
                 b.setMessage(todo.getMessage());
                 b.setNegativeButton("Ok", new OnClickListener() {
@@ -3146,10 +3147,10 @@ public class MusicPlaybackService extends Service {
                     }
                 });
                 AlertDialog alert = b.create();
-                alert.show();
+                alert.show();*/
                 return false;
             } catch (final IllegalArgumentException todo) {
-                AlertDialog.Builder b = new AlertDialog.Builder(this);
+               /* AlertDialog.Builder b = new AlertDialog.Builder(this);
                 b.setTitle("Error");
                 b.setMessage(todo.getMessage());
                 b.setNegativeButton("Ok", new OnClickListener() {
@@ -3159,7 +3160,7 @@ public class MusicPlaybackService extends Service {
                     }
                 });
                 AlertDialog alert = b.create();
-                alert.show();
+                alert.show();*/
                 return false;
             }
             player.setOnCompletionListener(this);
