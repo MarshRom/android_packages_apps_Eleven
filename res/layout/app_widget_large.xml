@@ -22,16 +22,9 @@
     android:columnCount="2"
     android:rowCount="3"
     android:background="@drawable/appwidget_bg"
+    android:backgroundTintMode="src_over"
+    android:id="@+id/app_widget_large"
     tools:ignore="ContentDescription" >
-
-    <ImageView
-        android:id="@+id/app_widget_large_background"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/app_widget_large_min_height"
-        android:columnCount="2"
-        android:rowCount="3"
-        android:src="@drawable/appwidget_bg"
-        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/app_widget_large_image"

@@ -129,7 +129,7 @@ public class AppWidgetSmall extends AppWidgetBase {
             appWidgetView.setTextViewText(R.id.app_widget_small_line_two, artistName);
         }
         appWidgetView.setImageViewBitmap(R.id.app_widget_small_image, bitmap);
-        appWidgetView.setInt(R.id.app_widget_small_backgroundimage, "setColorFilter", artwork.getVibrantDarkColor());
+        appWidgetView.setInt(R.id.app_widget_small, "setBackgroundTintList", (ColorStateList.valueOf(artwork.getVibrantDarkColor())));
 
         // Set correct drawable for pause state
         final boolean isPlaying = service.isPlaying();

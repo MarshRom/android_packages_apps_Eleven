@@ -20,18 +20,11 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/app_widget_large_min_height"
     android:background="@drawable/appwidget_bg"
+    android:backgroundTintMode="src_in"
     android:columnCount="2"
     android:rowCount="3"
+    android:id="@+id/app_widget_large_alternate"
     tools:ignore="ContentDescription" >
-
-    <ImageView
-        android:id="@+id/app_widget_large_alternate_backgroundimage"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/app_widget_large_min_height"
-        android:src="@drawable/appwidget_bg"
-        android:columnCount="2"
-        android:rowCount="3"
-        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/app_widget_large_alternate_image"
