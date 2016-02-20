@@ -19,7 +19,6 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.widget.RemoteViews;
 
@@ -129,7 +128,7 @@ public class AppWidgetLargeAlternate extends AppWidgetBase {
         appWidgetView.setTextViewText(R.id.app_widget_large_alternate_line_two, artistName);
         appWidgetView.setTextViewText(R.id.app_widget_large_alternate_line_three, albumName);
         appWidgetView.setImageViewBitmap(R.id.app_widget_large_alternate_image, bitmap);
-        appWidgetView.setInt(R.id.app_widget_large_alternate, "setBackgroundTintList", (ColorStateList.valueOf(artwork.getVibrantDarkColor())));
+        appWidgetView.setInt(R.id.app_widget_large_alternate, "setBackgroundTintList", artwork.getVibrantDarkColor());
 
         // Set correct drawable for pause state
         final boolean isPlaying = service.isPlaying();
