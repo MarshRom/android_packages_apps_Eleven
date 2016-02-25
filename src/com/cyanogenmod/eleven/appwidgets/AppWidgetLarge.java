@@ -18,6 +18,7 @@ import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.widget.GridView;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
@@ -113,6 +114,8 @@ public class AppWidgetLarge extends AppWidgetBase {
         final RemoteViews appWidgetView = new RemoteViews(service.getPackageName(),
                 R.layout.app_widget_large);
 
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setBackgroundTintList(ColorStateList.valueOf(artwork.getVibrantDarkColor()));
         final CharSequence trackName = service.getTrackName();
         final CharSequence artistName = service.getArtistName();
         final CharSequence albumName = service.getAlbumName();
@@ -124,7 +127,7 @@ public class AppWidgetLarge extends AppWidgetBase {
         appWidgetView.setTextViewText(R.id.app_widget_large_line_two, artistName);
         appWidgetView.setTextViewText(R.id.app_widget_large_line_three, albumName);
         appWidgetView.setImageViewBitmap(R.id.app_widget_large_image, bitmap);
-        appWidgetView.setBackgroundTintList(ColorStateList.valueOf(artwork.getVibrantDarkColor()));
+        appWidgetView.setBackgroundTintList(R.id.app_widget_large, ColorStateList.valueOf(artwork.getVibrantDarkColor()));
 
         // Set correct drawable for pause state
         final boolean isPlaying = service.isPlaying();
