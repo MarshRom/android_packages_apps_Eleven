@@ -20,6 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/app_widget_large_min_height"
     android:background="@drawable/appwidget_bg"
+    android:backgroundTint="#BFFFC0CB"
     android:backgroundTintMode="src_in"
     android:columnCount="2"
     android:rowCount="3"
