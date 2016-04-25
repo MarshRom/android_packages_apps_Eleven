@@ -19,7 +19,6 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.view.View;
@@ -130,7 +129,7 @@ public class AppWidgetSmall extends AppWidgetBase {
             appWidgetView.setTextViewText(R.id.app_widget_small_line_two, artistName);
         }
         appWidgetView.setImageViewBitmap(R.id.app_widget_small_image, bitmap);
-    //    appWidgetView.setBackgroundTintList(R.id.app_widget_small, ColorStateList.valueOf(artwork.getVibrantDarkColor()));
+        appWidgetView.setInt(R.id.app_widget_small, "setBackgroundColor", artwork.getVibrantDarkColor());
 
         // Set correct drawable for pause state
         final boolean isPlaying = service.isPlaying();
