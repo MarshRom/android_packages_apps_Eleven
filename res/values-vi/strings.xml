@@ -186,8 +186,4 @@
   <string name="search_title_songs">Tất cả về bài hát \"%s\"</string>
   <string name="search_title_playlists">Tất cả về danh sách phát \"%s\"</string>
   <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
-  <string name="menu_sleep_mode">Hẹn giờ tắt nhạc</string>
-  <string name="cancel_sleep_mode">Hủy hẹn giờ</string>
-  <string name="select_quit_time">Đặt thời gian tắt nhạc (phút)</string>
-  <string name="quit_warining">Nhạc sẽ tắt sau %1$s phút(s)</string>
 </resources>
