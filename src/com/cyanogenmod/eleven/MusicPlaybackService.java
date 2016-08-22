@@ -159,6 +159,11 @@ public class MusicPlaybackService extends Service {
      * Called to go to stop the playback
      */
     public static final String STOP_ACTION = "com.cyanogenmod.eleven.stop";
+    
+     /**
+     * Called to go to stop the playback for sleep mode
+     */
+    public static final String SLEEP_MODE_STOP_ACTION = "com.marshrom.eleven.sleepmode.stop";
 
     /**
      * Called to go to the previous track or the beginning of the track if partway through the track
@@ -639,6 +644,7 @@ public class MusicPlaybackService extends Service {
         filter.addAction(TOGGLEPAUSE_ACTION);
         filter.addAction(PAUSE_ACTION);
         filter.addAction(STOP_ACTION);
+        filter.addAction(SLEEP_MODE_STOP_ACTION);
         filter.addAction(NEXT_ACTION);
         filter.addAction(PREVIOUS_ACTION);
         filter.addAction(PREVIOUS_FORCE_ACTION);
@@ -832,6 +838,12 @@ public class MusicPlaybackService extends Service {
         } else if (CMDPLAY.equals(command)) {
             play();
         } else if (CMDSTOP.equals(command) || STOP_ACTION.equals(action)) {
+            pause();
+            mPausedByTransientLossOfFocus = false;
+            seek(0);
+            releaseServiceUiAndStop();
+        } else if (SLEEP_MODE_STOP_ACTION.equals(action)) {
+            setSleepMode(false);
             pause();
             mPausedByTransientLossOfFocus = false;
             seek(0);
@@ -2260,6 +2272,19 @@ public class MusicPlaybackService extends Service {
         }
     }
 
+     /**
+     * Sleep mode status get/set.
+     */
+    private static boolean sleepMode = false;
+
+    public boolean getSleepMode() {
+        return sleepMode;
+    }
+
+    public void setSleepMode(boolean enable) {
+        sleepMode = enable;
+    }
+
     /**
      * Gets the track id at a given position in the queue
      * @param position
@@ -3361,6 +3386,21 @@ public class MusicPlaybackService extends Service {
             }
         }
     }
+		        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public boolean getSleepMode() throws RemoteException  {
+            return mService.get().getSleepMode();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void setSleepMode(boolean enable) throws RemoteException  {
+            mService.get().setSleepMode(enable);
+        }
 
     private static final class ServiceStub extends IElevenService.Stub {
 

@@ -69,6 +69,7 @@ import com.cyanogenmod.eleven.widgets.RepeatButton;
 import com.cyanogenmod.eleven.widgets.RepeatingImageButton;
 import com.cyanogenmod.eleven.widgets.ShuffleButton;
 import com.cyanogenmod.eleven.widgets.VisualizerView;
+import com.marshrom.eleven.widgets.SleepTimberDialog;
 
 import java.lang.ref.WeakReference;
 
@@ -661,6 +662,9 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
                 return true;
             case R.id.menu_clear_queue:
                 MusicUtils.clearQueue();
+                return true;
+            case R.id.menu_sleep_mode:
+                SleepTimberDialog.show(getFragmentManager());
                 return true;
             default:
                 break;
