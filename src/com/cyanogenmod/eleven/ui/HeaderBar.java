@@ -165,7 +165,7 @@ public class HeaderBar extends LinearLayout {
                 MusicUtils.clearQueue();
                 return true;
             case R.id.menu_sleep_mode:
-                SleepModeDialog.show(mFragment.getFragmentManager());
+                SleepTimberDialog.show(mFragment.getFragmentManager());
                 return true;
             default:
                 break;
